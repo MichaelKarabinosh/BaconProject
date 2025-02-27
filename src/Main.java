@@ -11,9 +11,9 @@ public class Main {
         System.out.println("Number of movies: " + movies.size());
         System.out.println("Number of Actors: " + SimpleMovie.getMoviesbyActor().size());
         Scanner s = new Scanner(System.in);
-        System.out.print("Enter actor name: ");
-        String name = s.nextLine();
-//        String name = "Jithin Raj";
+//        System.out.print("Enter actor name: ");
+//        String name = s.nextLine();
+        String name = "Leni Riefenstahl";
         HashSet<SimpleMovie> moviestoParse = new HashSet<>();
         HashSet<ArrayList<String>> actorstoParse = new HashSet<>();
         int baconNum = 0;
@@ -61,6 +61,7 @@ public class Main {
             baconNum = 0;
         }
         ArrayList<String> path = new ArrayList<>();
+        System.out.println(name + " has a Bacon Number of " + baconNum + ".");
         if (baconNum == 0)
         {
             path.add("Kevin Bacon");
@@ -79,11 +80,24 @@ public class Main {
         {
             path = findFourBaconPath(linkingMovie, name, actorsByMovies);
         }
-        System.out.println(name + " has a Bacon Number of " + baconNum + ".");
+        if (baconNum == 5)
+        {
+            path = findFiveBaconPath(linkingMovie, name, actorsByMovies);
+        }
 //        System.out.println(moviesToRevParse);
 //        System.out.println(moviesToRevParse.getFirst().getActors());
 //        System.out.println(baconNum);
-        System.out.println(path.reversed());
+        for (int i = 0; i < path.size(); i++)
+        {
+            if (i < (path.size() - 1)) {
+                System.out.print(path.reversed().get(i) + " -> ");
+            }
+            else {
+                System.out.println(path.reversed().get(i));
+            }
+        }
+//        System.out.println(path.reversed());
+
 
 
 
@@ -200,6 +214,68 @@ public class Main {
         }
         return path;
     }
+
+    public static ArrayList<String> findFiveBaconPath(SimpleMovie movie, String name, HashMap<String, ArrayList<SimpleMovie>> actorsByMovies)
+    {
+//        ArrayList<String> path = findFourBaconPath(movie, name, actorsByMovies);
+//        ArrayList<String> path2 = findOneBaconPath(movie, path.getLast());
+//        System.out.println(path);
+//        System.out.println(path2);
+//        ArrayList<String> path = new ArrayList<>();
+//        path.add("Kevin Bacon");
+//        path.add(movie.getTitle());
+//        ArrayList<String> actors = movie.getActors();
+//        for (int i = 0; i < actors.size(); i++)
+//        {
+//            String actor = actors.get(i);
+//            ArrayList<SimpleMovie> movies1 = actorsByMovies.get(actor);
+//            for (int j = 0; j < movies1.size(); j++)
+//            {
+//                SimpleMovie movie1 = movies1.get(j);
+//                ArrayList<String> actors1 = movie1.getActors();
+//                for (int k = 0; k < actors1.size(); k++)
+//                {
+//                    ArrayList<SimpleMovie> movies2 = actorsByMovies.get(actors1.get(k));
+//                    for (int l = 0; l < movies2.size(); l++) {
+//                        SimpleMovie movie3 = movies2.get(l);
+//                        ArrayList<String> actors2 = movie3.getActors();
+//                        for (int z = 0; z < actors2.size(); z++)
+//                        {
+//                            ArrayList<SimpleMovie> movies3 = actorsByMovies.get(actors2.get(z));
+//                            for (int x = 0; x < movies3.size(); x++)
+//                            {
+//                                SimpleMovie movie4 = movies3.get(x);
+//                                ArrayList<String> actors3 = movie4.getActors();
+//                                for (int c = 0; c < actors3.size(); c++)
+//                                {
+//                                    ArrayList<SimpleMovie> movies4 = actorsByMovies.get(actors3.get(c));
+//                                    for (int v = 0; v < movies4.size(); v++)
+//                                    {
+//                                        if (movies4.get(v).getActors().contains(name))
+//                                        {
+//                                            path.add(actor);
+//                                            path.add(movie1.getTitle());
+//                                            path.add(actors1.get(k));
+//                                            path.add(movies2.get(l).getTitle());
+//                                            path.add(actors2.get(z));
+//                                            path.add(movies3.get(x).getTitle());
+//                                            path.add(actors3.get(c));
+//                                            path.add(movies4.get(v).getTitle());
+//                                            path.add(name);
+//                                            return path;
+//                                        }
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//        return path;
+        return new ArrayList<>();
+    }
+
 
 
 }
