@@ -8,7 +8,7 @@ public class MovieDatabaseBuilder {
 
 
     public static ArrayList<SimpleMovie> getMovieDB(String fileName) {
-        ArrayList<SimpleMovie> movies = new ArrayList<SimpleMovie>();
+        ArrayList<SimpleMovie> movies = new ArrayList<>();
         try {
             File movieData = new File(fileName);
             Scanner reader = new Scanner(movieData);
